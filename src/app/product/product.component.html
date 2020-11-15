@@ -1,9 +1,12 @@
+<div class="text-center bg-primary text-white" style="width: 100; height: 65px;">
+    <h1>This is a simple crud</h1>
+</div>
+<div class="container-fluid justify-content-center d-flex">
 
-<div class="container">
-    <div class="row">
+   <div class="row">
          <!--start: create product -->
         <div [hidden]="!isCreate">
-            <div class="col-md-6">
+            <div class="col-md-12 float-left">
                 <h1 class="h1 mb-3 mt-5">{{formTitle}}</h1>
                 <form #productForm="ngForm" (ngSubmit)="saveProdcut()">
     
@@ -28,7 +31,7 @@
          <!--end: create product -->
         <!--start: update product -->
         <div [hidden]="isCreate">
-            <div class="col-md-6">
+            <div class="col-md-12 float-left">
                 <h1 class="h1 mb-3 mt-5">{{formTitleEdit}}</h1>
                 <form #productForm="ngForm" (ngSubmit)="updateProdcut()">
     
@@ -51,35 +54,41 @@
             </div> 
         </div>       
         <!--end: update product -->        
-    </div>
-    <div class="row">
-        <div class="col-md-10">
-            <div class="responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let p of productList">
-                            <td>{{p.id}}</td>
-                            <td>{{p.name}}</td>
-                            <td>{{p.price}}</td>
-                            <td>{{p.quantity}}</td>
-                            <td>
-                                <a (click)="edit(p.id)">Edit</a> |
-                                <a (click)="delete(p.id)">Delete</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                    
-                </table>
+    
+    
+    
+        <div class="mt-5 float-right">
+            <div class="col-md-12">
+                <div class="responsive">
+                    <h1 class="mb-5">This is a Product table</h1>
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead class="bg-success text-white mt-5">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let p of productList">
+                                <td>{{p.id}}</td>
+                                <td>{{p.name}}</td>
+                                <td>{{p.price}}</td>
+                                <td>{{p.quantity}}</td>
+                                <td>
+                                    
+                                    <a class="btn btn-primary" (click)="edit(p.id)">Edit</a> |
+                                    <a class="btn btn-danger" (click)="delete(p.id)">Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+    
 </div>
